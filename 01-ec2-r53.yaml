@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    ami_id: ami_ids # to get the ami id from the inventory file, we can use the group name as a variable and it will return the value of the group name which is the ami id
+    ami_id: ami-09c813fb71547fc4f # to get the ami id from the inventory file, we can use the group name as a variable and it will return the value of the group name which is the ami id
     sg_id: sg-0cbd4d3b40fa4e1e2 # security group id
     zone_id: "Z04484812P5RP9I48MRRL" # route53 zone id
     domain_name: "shivaprasad.fun"
