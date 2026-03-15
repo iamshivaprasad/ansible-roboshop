@@ -9,17 +9,17 @@
     # we can pass instances through command line using -e
     instance:
       - mongodb
-      - redis
-      - mysql
-      - rabbitmq
-  tasks:
-  - name: create ec2 instance
-    amazon.aws.ec2: # to create ec2 instance using amazon.aws.ec2 module
-      name: "{{ item }}"
-      instance_type: t3.micro
-      security_group: "{{ sg_id }}"
-      image_id: "{{ ami_id }}"
-      tags:
+      # - redis
+      # - mysql
+      # - rabbitmq
+    tasks:
+    - name: create ec2 instance
+      amazon.aws.ec2: # to create ec2 instance using amazon.aws.ec2 module
+        name: "{{ item }}"
+        instance_type: t3.micro
+        security_group: "{{ sg_id }}"
+        image_id: "{{ ami_id }}"
+        tags:
         Name: "{{ item }}"
     loop: "{{ instance }}"
     register: ec2_output
@@ -33,27 +33,27 @@
   #     msg: "{{ item.instances[0].public_ip_address }}"
   #     loop: "{{ ec2_output.results }}"
 
-  - name: create r53 record
-    amazon.aws.route53:
-      state: present
-      zone: "{{ domain_name }}"
-      record: "{{ item.item }}.{{ domain_name }}" # to create a record with the name of the instance and the domain name, for example mongodb.shivaprasad.fun
-      type: A
-      ttl: 1
-      value: "{{ item.instances[0].public_ip_address }}"
-      overwrite: true
-    loop: "{{ ec2_output.results }}"
+  # - name: create r53 record
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ domain_name }}"
+  #     record: "{{ item.item }}.{{ domain_name }}" # to create a record with the name of the instance and the domain name, for example mongodb.shivaprasad.fun
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.instances[0].public_ip_address }}"
+  #     overwrite: true
+  #   loop: "{{ ec2_output.results }}"
 
 # We are creating one record with public ip address only for frontend server but we can create record for all the servers by using loop and we can use the same loop for creating ec2 instance and creating r53 record, we can use the item variable to access the name of the instance and the public ip address of the instance, for example we can use item.item to access the name of the instance and item.instances[0].public_ip_address to access the public ip address of the instance.
 
-  - name: create r53 record for frontend
-    amazon.aws.route53:
-      state: present
-      zone: "{{ domain_name }}"
-      record: "{{ domain_name }}" # to create a record with the name of the domain name, for example shivaprasad.fun
-      type: A
-      ttl: 1
-      value: "{{ item.instances[0].public_ip_address }}" # to get the public ip address of the first instance created which is frontend server and assign it to the value of the record
-      overwrite: true
-    when: item.item == "frontend" # to create the record only for frontend server, we can use when condition to check if the name of the instance is frontend or not, if it is frontend then it will create the record otherwise it will skip the task
-    loop: "{{ ec2_output.results }}"
+  # - name: create r53 record for frontend
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ domain_name }}"
+  #     record: "{{ domain_name }}" # to create a record with the name of the domain name, for example shivaprasad.fun
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.instances[0].public_ip_address }}" # to get the public ip address of the first instance created which is frontend server and assign it to the value of the record
+  #     overwrite: true
+  #   when: item.item == "frontend" # to create the record only for frontend server, we can use when condition to check if the name of the instance is frontend or not, if it is frontend then it will create the record otherwise it will skip the task
+  #   loop: "{{ ec2_output.results }}"
