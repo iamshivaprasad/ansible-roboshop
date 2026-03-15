@@ -27,3 +27,8 @@
   - name: print ec2 output
     ansible.builtin.debug:
       msg: "{{ ec2_output }}" # to print the output of the ec2 module stored in the variable ec2_output
+
+  - name: print public ipaddress
+    ansible.builtin.debug: "{{ item.instances[0].public_ip_address }}"
+    loop: "{{ ec2_output.results }}"
+    
