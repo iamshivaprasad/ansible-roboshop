@@ -30,3 +30,8 @@
       name: redis
       state: started
       enabled: yes
+
+  
+# - name: test redis connection
+# sudo su -
+# vim /etc/redis/redis.conf
