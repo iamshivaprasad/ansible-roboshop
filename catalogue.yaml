@@ -78,7 +78,7 @@
 
   - name: load products into mongodb
     ansible.builtin.shell: mongosh --host mongodb.shivaprasad.fun </app/db/master-data.js
-    when: catalogue_output.stdout | int < 0
+    when: catalogue_output.stdout | int < 0 # if catalogue database is not present then only load the data
 
   - name: daemon reload enable and start
     ansible.builtin.systemd_service:
