@@ -35,3 +35,4 @@
 # - name: test redis connection
 # sudo su -
 # vim /etc/redis/redis.conf
+# check protected mode and bind address
