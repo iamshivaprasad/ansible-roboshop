@@ -81,7 +81,7 @@
     when: catalogue_output.stdout | int < 0 # if catalogue database is not present then only load the data
 
   - name: daemon reload enable and start
-    ansible.builtin.systemd_service:
+    ansible.builtin.systemd_service: # systemd module is used to manage systemd services
       name: catalogue
       enabled: true
       state: started
