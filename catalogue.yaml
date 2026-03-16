@@ -21,7 +21,11 @@
       system: true
       shell: /sbin/nologin
       home: /app
-    
+  # remove app directory if exists
+  - name: remove app directory if exists
+    ansible.builtin.file:
+      state: absent  
+
   - name: create app directory
     ansible.builtin.file:
       state: directory
@@ -29,6 +33,11 @@
       owner: roboshop
       group: roboshop
       mode: '0755'
+
+  - name: remove catalogue zip file if exists
+    ansible.builtin.file:
+      state: absent
+      path: /tmp/catalogue.zip
 
   - name: download catalogue code
     ansible.builtin.get_url:
@@ -87,4 +96,3 @@
       state: started
       daemon_reload: true
 
-  
