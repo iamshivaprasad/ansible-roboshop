@@ -20,3 +20,25 @@
       comment: "RoboShop System User"
       system: true
       shell: /sbin/nologin
+      home: /app
+    
+  - name: create app directory
+    ansible.builtin.file:
+      state: directory
+      path: /app
+      owner: roboshop
+      group: roboshop
+      mode: '0755'
+
+  - name: download catalogue code
+    ansible.builtin.get_url:
+      url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+      dest: /tmp/catalogue.zip
+
+  - name: unzip catalogue code
+    ansible.builtin.unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+      remote_src: yes
+      owner: roboshop
+      group: roboshop
