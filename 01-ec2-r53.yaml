@@ -10,7 +10,7 @@
     instances: 
     - mongodb
     - redis
-    # # - mysql
+    - mysql
     # # - rabbitmq
     - catalogue
     # # - cart
