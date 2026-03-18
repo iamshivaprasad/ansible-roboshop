@@ -4,7 +4,7 @@
   tasks:
   - name: copy mongodb.repo file
     ansible.builtin.copy: # copy module is used to copy files from local to remote
-      src: monogo.repo
+      src: mongo.repo
       dest: /etc/yum.repos.d/mongodb.repo
 
   - name: install mongodb
