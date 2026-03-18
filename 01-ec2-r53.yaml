@@ -12,7 +12,7 @@
     - redis
     # # - mysql
     # # - rabbitmq
-    # # - catalogue
+    - catalogue
     # # - cart
     # # - payment
     # # - shipping
