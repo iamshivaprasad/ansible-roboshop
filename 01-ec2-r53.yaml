@@ -17,7 +17,7 @@
     # - payment
     # - shipping
     # - user
-    # - frontend
+    - frontend
   
 
   tasks:
