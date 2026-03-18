@@ -15,7 +15,7 @@
     # # - catalogue
     # - cart
     # - payment
-    - shipping
+    # - shipping
     # - user
     # - frontend
   
