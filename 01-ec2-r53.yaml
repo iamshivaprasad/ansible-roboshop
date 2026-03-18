@@ -8,8 +8,8 @@
     domain_name: "shivaprasad.fun"
     # we can pass instances through command line using -e
     instances: 
-    # - mongodb
-    # # - redis
+    - mongodb
+    - redis
     # # - mysql
     # # - rabbitmq
     # # - catalogue
