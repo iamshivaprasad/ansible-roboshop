@@ -63,8 +63,8 @@
 
   - name: copy mongodb repo
     ansible.builtin.copy: # copy module is used to copy files from local to remote
-      src: mongodb.repo
-      dest: /etc/yum.repos.d/mongodb.repo
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
 
   - name: install mongodb client
     ansible.builtin.package:
