@@ -31,9 +31,6 @@
     ansible.builtin.file:
       state: directory
       path: /app
-      owner: roboshop
-      group: roboshop
-      mode: '0755'
 
   - name: remove catalogue zip file if exists
     ansible.builtin.file:
