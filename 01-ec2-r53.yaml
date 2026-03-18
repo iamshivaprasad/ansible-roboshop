@@ -7,7 +7,7 @@
     zone_id: "Z04484812P5RP9I48MRRL" # replace with your ID
     domain_name: "shivaprasad.fun"
     # we can pass instances through command line using -e
-    # instances: 
+    instances: 
     # - mongodb
     # # - redis
     # # - mysql
