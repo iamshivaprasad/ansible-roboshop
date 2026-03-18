@@ -7,18 +7,18 @@
     zone_id: "Z04484812P5RP9I48MRRL" # replace with your ID
     domain_name: "shivaprasad.fun"
     # we can pass instances through command line using -e
-    instances: 
-    - mongodb
-    # - redis
-    # - mysql
-    # - rabbitmq
-    # - catalogue
-    # - cart
-    # - payment
-    # - shipping
-    # - user
-    # - frontend
-    # - payment
+    # instances: 
+    # - mongodb
+    # # - redis
+    # # - mysql
+    # # - rabbitmq
+    # # - catalogue
+    # # - cart
+    # # - payment
+    # # - shipping
+    # # - user
+    # # - frontend
+    # # - payment
 
   tasks:
   - name: create ec2 instance
