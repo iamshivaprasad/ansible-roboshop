@@ -4,7 +4,7 @@
   tasks:
   - name: copy rabbitmq repo
     ansible.builtin.copy: # copy module is used to copy files from local to remote
-      src: rabbitmq.repo
+      src: rebbitmq.repo
       dest: /etc/yum.repos.d/rebbitmq.repo
   
   - name: install rabbitmq server
