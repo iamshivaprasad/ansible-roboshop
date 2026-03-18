@@ -154,15 +154,15 @@
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
 
-  # - name: copy mongo repo
-  #   ansible.builtin.copy:
-  #     src: mongo.repo
-  #     dest: /etc/yum.repos.d/mongo.repo
-
   - name: copy mongo repo
     ansible.builtin.copy:
-    src: mongo.repo
-    dest: /etc/yum.repos.d/mongo.repo
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+  # - name: copy mongo repo
+  #   ansible.builtin.copy:
+  #   src: mongo.repo
+  #   dest: /etc/yum.repos.d/mongo.repo
 
   - name: install mongodb client
     ansible.builtin.package:
