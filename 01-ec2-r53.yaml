@@ -1,24 +1,24 @@
-- name: create ec2 and r53
-  hosts: local
-  connection: local
-  vars:
-    ami_id: ami-0220d79f3f480ecf5
-    sg_id: sg-0cbd4d3b40fa4e1e2 # replace with your SG ID
-    zone_id: "Z04484812P5RP9I48MRRL" # replace with your ID
-    domain_name: "shivaprasad.fun"
-    # we can pass instances through command line using -e
-    instances: 
-    - mongodb
-    - redis
-    - mysql
-    - rabbitmq
-    - catalogue
-    - cart
-    - payment
-    - shipping
-    - user
-    - frontend
-    - payment
+# - name: create ec2 and r53
+#   hosts: local
+#   connection: local
+#   vars:
+#     ami_id: ami-0220d79f3f480ecf5
+#     sg_id: sg-0cbd4d3b40fa4e1e2 # replace with your SG ID
+#     zone_id: "Z04484812P5RP9I48MRRL" # replace with your ID
+#     domain_name: "shivaprasad.fun"
+#     # we can pass instances through command line using -e
+#     instances: 
+#     - mongodb
+#     - redis
+#     - mysql
+#     - rabbitmq
+#     - catalogue
+#     - cart
+#     - payment
+#     - shipping
+#     - user
+#     - frontend
+#     - payment
 
   tasks:
   - name: create ec2 instance
